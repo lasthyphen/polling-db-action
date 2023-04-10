@@ -203,14 +203,13 @@ function run() {
             const network = core.getInput('network');
             const outputFilePath = core.getInput('output-file');
             if (network !== constants_1.SupportedNetworks.mainnet &&
-                network !== constants_1.SupportedNetworks.goerli)&&
+                network !== constants_1.SupportedNetworks.goerli &&
                 network !== constants_1.SupportedNetworks.dijets) {
                 throw new Error('Unsupported network input parameter');
             }
             const spockPolls = yield (0, fetchSpockPolls_1.default)(network);
             const pollsWithRawMetadata = yield (0, fetchGithubPolls_1.default)(spockPolls);
             const polls = (0, parseGithubMetadata_1.parseGithubMetadata)(pollsWithRawMetadata, pollTagsFilePath);
-            console.log(JSON.stringify(polls, null, 2));
             (0, fs_1.writeFileSync)(outputFilePath, JSON.stringify(polls, null, 2));
         }
         catch (error) {
