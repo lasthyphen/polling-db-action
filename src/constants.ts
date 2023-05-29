@@ -24,5 +24,5 @@ export const POLLING_DB_URLS = {
   [SupportedNetworks.goerli]:
     'https://pollingdb2-goerli-staging.makerdux.com/api/v1',
   [SupportedNetworks.dijets]:
-    'http://20.68.211.18:3001/v1',
+    'http://20.123.135.101:3001/v1',
 }
